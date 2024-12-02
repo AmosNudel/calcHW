@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #res {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            text-align: right;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        table {
+            background-color: #ffffff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            font-size: 18px;
+            padding: 15px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #ffffff;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:active {
+            background-color: #003f7f;
+        }
+
+        button#plus, button#minus, button#multi, button#divide, button#doCalc {
+            background-color: #28a745;
+        }
+
+        button#plus:hover, button#minus:hover, button#multi:hover, button#divide:hover, button#doCalc:hover {
+            background-color: #218838;
+        }
+
+        button#plus:active, button#minus:active, button#multi:active, button#divide:active, button#doCalc:active {
+            background-color: #1e7e34;
+        }
+
+        button#clearCalc {
+            background-color: #dc3545;
+        }
+
+        button#clearCalc:hover {
+            background-color: #c82333;
+        }
+
+        button#clearCalc:active {
+            background-color: #bd2130;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" id="res" readonly><br>
+        <table>
+            <tr>
+                <td>
+                    <button onclick="addition()" id="plus">+</button>
+                    <button onclick="subtract()" id="minus">-</button>
+                    <button onclick="multi()" id="multi">*</button>
+                    <button onclick="divide()" id="divide">/</button>
+                    <button onclick="doCalc()" id="doCalc">=</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="number(7)" id="7">7</button>
+                    <button onclick="number(8)" id="8">8</button>
+                    <button onclick="number(9)" id="9">9</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="number(4)" id="4">4</button>
+                    <button onclick="number(5)" id="5">5</button>
+                    <button onclick="number(6)" id="6">6</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="number(1)" id="1">1</button>
+                    <button onclick="number(2)" id="2">2</button>
+                    <button onclick="number(3)" id="3">3</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="number(0)" id="0">0</button>
+                    <button onclick="clearCalc()" id="clearCalc">C</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let firstNumber = 0
+        function number(nu1) {
+            res.value += document.getElementById(nu1).innerHTML
+        }
+
+
+        
+        function clearCalc() {
+            return res.value = "";
+        }
+        function addition() {
+            firstNumber = document.getElementById("res").value
+            // console.log(firstNumber);
+            res.value +=" " + document.getElementById("plus").innerHTML + " "
+            firstNumber = document.getElementById("res").value
+            // console.log(firstNumber);
+        }
+        function subtract() {
+            firstNumber = document.getElementById("res").value
+            // console.log(firstNumber);
+            res.value +=" " + document.getElementById("minus").innerHTML + " "
+            firstNumber = document.getElementById("res").value
+            // console.log(firstNumber);
+        }
+
+        function multi() {
+            firstNumber = document.getElementById("res").value
+            // console.log(firstNumber);
+            res.value +=" " + document.getElementById("multi").innerHTML + " "
+            firstNumber = document.getElementById("res").value
+            // console.log(firstNumber);
+        }
+
+        function divide() {
+            firstNumber = document.getElementById("res").value
+            // console.log(firstNumber);
+            res.value +=" " + document.getElementById("divide").innerHTML + " "
+            firstNumber = document.getElementById("res").value
+            // console.log(firstNumber);
+        }
+
+        function doCalc() {
+            let equasion = document.getElementById("res").value;
+            // console.log(equasion);
+            // console.log(typeof(equasion))
+            if (equasion.includes(" + ")) {
+                console.log("true for plus");
+                let calculated = eval(equasion)
+                // console.log(calculated);
+                clearCalc()
+                return document.getElementById("res").value = calculated
+            }
+            if (equasion.includes(" - ")) {
+                console.log("true for minus");
+                let calculated = eval(equasion)
+                // console.log(calculated);
+                clearCalc()
+                return document.getElementById("res").value = calculated
+            }
+            if (equasion.includes(" * ")) {
+                console.log("true for multi");
+                let calculated = eval(equasion)
+                // console.log(calculated);
+                clearCalc()
+                return document.getElementById("res").value = calculated
+            }
+            if (equasion.includes(" / ")) {
+                console.log("true for divide");
+                let calculated = eval(equasion)
+                // console.log(calculated);
+                clearCalc()
+                return document.getElementById("res").value = calculated
+            }
+        }
+
+
+        
+
+
+    </script>
+    
+</body>
+</html>
